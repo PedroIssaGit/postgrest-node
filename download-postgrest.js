@@ -4,7 +4,7 @@ const downloadFile = require("./download-file")
 const path = require("path")
 const fs = require("fs")
 const tar = require("tar")
-const xz = require("xz")
+const xz = new Function();
 
 const getJSON = bent("json", {
   "User-Agent": "seveibar, postgrest-bin (an npm module)",
