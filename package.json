@@ -12,7 +12,9 @@
     "bunyan": "^1.8.15",
     "debug": "^4.3.2",
     "decamelize": "^4.0.0",
-    "decompress-tar": "^4.1.1",
+    "decompress": "4.2.1",
+    "decompress-tar": "4.1.1",
+    "decompress-tarxz": "3.0.0",
     "follow-redirects": "^1.13.0",
     "tar": "^6.0.5",
     "tmp": "^0.2.1"

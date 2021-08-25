@@ -3,7 +3,9 @@ const os = require("os")
 const downloadFile = require("./download-file")
 const path = require("path")
 const fs = require("fs")
-const tar = require("tar")
+const tar = require("tar");
+const decompress = require('decompress');
+const decompressTarxz = require('decompress-tarxz');
 const xz = new Function();
 
 const getJSON = bent("json", {
@@ -87,13 +89,14 @@ module.exports = async () => {
     let tarXPath = downloadPath
     if (myAsset.name.endsWith(".xz")) {
       let newTarPath = path.join(__dirname, "postgrest.tar")
-      const decomp = new xz.Decompressor()
-      const readFile = fs.createReadStream(downloadPath)
-      const writeFile = fs.createWriteStream(newTarPath)
-      readFile.pipe(decomp).pipe(writeFile)
+
+      await decompress(downloadPath, newTarPath, {
+        plugins: [
+            decompressTarxz()
+        ]
+    });
       fs.unlinkSync(tarXPath)
-      tarXPath = newTarPath
-      await new Promise((resolve) => writeFile.on("finish", resolve))
+      tarXPath = newTarPath;
     }
     await tar.x({
       file: tarXPath,
