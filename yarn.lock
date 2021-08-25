@@ -1416,7 +1416,7 @@
   dependencies:
     "mimic-response" "^1.0.0"
 
-"decompress-tar@^4.0.0", "decompress-tar@^4.1.0", "decompress-tar@^4.1.1":
+"decompress-tar@^4.0.0", "decompress-tar@^4.1.0", "decompress-tar@^4.1.1", "decompress-tar@4.1.1":
   "integrity" "sha512-JdJMaCrGpB5fESVyxwpCx4Jdj2AagLmv3y58Qy4GE6HMVjWz1FeVQk1Ct4Kye7PftcdOo/7U7UKzYBJgqnGeUQ=="
   "resolved" "https://registry.npmjs.org/decompress-tar/-/decompress-tar-4.1.1.tgz"
   "version" "4.1.1"
@@ -1445,7 +1445,7 @@
     "file-type" "^5.2.0"
     "is-stream" "^1.1.0"
 
-"decompress-tarxz@^3.0.0":
+"decompress-tarxz@3.0.0":
   "integrity" "sha512-/85049bKZOmkVXrFz9Zf90DMBPYuXGGAMOQaytNgMGiB7u4iIJKLUaEXRiLBvugtknmYcP1Zv6KQWEYWshTblg=="
   "resolved" "https://registry.npmjs.org/decompress-tarxz/-/decompress-tarxz-3.0.0.tgz"
   "version" "3.0.0"
@@ -1465,7 +1465,7 @@
     "pify" "^2.3.0"
     "yauzl" "^2.4.2"
 
-"decompress@^4.2.1":
+"decompress@4.2.1":
   "integrity" "sha512-e48kc2IjU+2Zw8cTb6VZcJQ3lgVbS4uuB1TfCHbiZIP/haNXm+SVyhu+87jts5/3ROpd82GSVCoNs/z8l4ZOaQ=="
   "resolved" "https://registry.npmjs.org/decompress/-/decompress-4.2.1.tgz"
   "version" "4.2.1"

@@ -3,10 +3,10 @@ const os = require("os")
 const downloadFile = require("./download-file")
 const path = require("path")
 const fs = require("fs")
-const tar = require("tar");
-const decompress = require('decompress');
-const decompressTarxz = require('decompress-tarxz');
-const xz = new Function();
+const tar = require("tar")
+const decompress = require("decompress")
+const decompressTarxz = require("decompress-tarxz")
+const xz = new Function()
 
 const getJSON = bent("json", {
   "User-Agent": "seveibar, postgrest-bin (an npm module)",
@@ -49,6 +49,7 @@ switch (platform) {
 const releaseVersionToUse = "8.0.0"
 
 module.exports = async () => {
+
   // Get all the assets from the github release page
   const releaseAPIUrl = `https://api.github.com/repos/PostgREST/postgrest/releases/tags/v${releaseVersionToUse}`
   const { assets } = await getJSON(releaseAPIUrl)
@@ -88,21 +89,14 @@ module.exports = async () => {
     console.log(`extracting ${myAsset.name}...`)
     let tarXPath = downloadPath
     if (myAsset.name.endsWith(".xz")) {
-      let newTarPath = path.join(__dirname, "postgrest.tar")
-
-      await decompress(downloadPath, newTarPath, {
-        plugins: [
-            decompressTarxz()
-        ]
-    });
-      fs.unlinkSync(tarXPath)
-      tarXPath = newTarPath;
+      let newTarPath = path.join(__dirname, "postgrest.tar");
+      await decompress(downloadPath, exePath, {
+        plugins: [decompressTarxz()],
+      });
+   //   fs.unlinkSync(tarXPath)
+      tarXPath = newTarPath
     }
-    await tar.x({
-      file: tarXPath,
-    })
-    fs.unlinkSync(tarXPath)
-
+ //   fs.unlinkSync(tarXPath)
     if (!fs.existsSync(exePath)) {
       throw new Error(
         `For some reason, after extracting postgrest there was no executable!`
@@ -116,3 +110,4 @@ module.exports = async () => {
 if (!module.parent) {
   module.exports().then(() => {})
 }
+
